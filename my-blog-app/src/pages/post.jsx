@@ -1,52 +1,64 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 function Post() {
   const { id } = useParams();
+  const navigate = useNavigate();
 
-  if (id === "1") {
+  const posts = {
+    1: {
+      title: "GeoTiers",
+      content: `ჩვენი Minecraft-ის მოთამაშეთა ტიერლისტი აფასებს მოთამაშეებს სხვადასხვა მინი-თამაშებში მათი შედეგების მიხედვით. 
+      თითოეულ მოთამაშეს ენიჭება ტიერი (მაგალითად, HT1, LT5, RHT2) კონკრეტული მინი-თამაშისთვის, რომელშიც მონაწილეობა მიიღო. 
+      ეს ინდივიდუალური ტიერები ჯამდება და განსაზღვრავს მოთამაშის საერთო ქულებს.`,
+      link: "https://geotiers.fun",
+      linkText: "ეწვიე GeoTiers ვებსაიტს",
+    },
+    2: {
+      title: "EventMC",
+      content: `EventMC არის Minecraft სერვერი, რომელიც ორგანიზებას უწევს სხვადასხვა ტიპის ღონისძიებებს: 
+      Squid Game, UHC, Hunger Games და Battle Royale. 
+      მოთამაშეებს შეუძლიათ იბრძოლონ, იასპარეზონ და მოიგონ რეალური პრიზები.`,
+      link: "https://eventmc.netlify.app",
+      linkText: "ეწვიე EventMC ვებსაიტს",
+    },
+  };
+
+  const post = posts[id];
+
+  if (!post) {
     return (
       <div className="p-6">
-        <h1 className="text-3xl font-bold mb-4">GeoTiers</h1>
-        <p className="text-gray-700 mb-2">
-          ჩვენი Minecraft-ის მოთამაშეთა ტიერლისტი აფასებს მოთამაშეებს სხვადასხვა მინი-თამაშებში მათი შედეგების მიხედვით.
-        </p>
-        <p className="text-gray-700 mb-2">
-          თითოეულ მოთამაშეს ენიჭება ტიერი (მაგალითად, HT1, LT5, RHT2) კონკრეტული მინი-თამაშისთვის, რომელშიც მონაწილეობა მიიღო.
-        </p>
-        <p className="text-gray-700">
-          ეს ინდივიდუალური ტიერები ჯამდება და განსაზღვრავს მოთამაშის საერთო ქულებს.
-        </p>
-        <p>
-            თუ უფრო მეტი გაინტერესებთ ვებსაიტზე, გადადით ამ ლინკზე: <a href="https://geotiers.fun/home" className="text-2xl font-bold text-blue-500 underline">GeoTiers</a>
-        </p>
-      </div>
-    );
-  }
-
-  if (id === "2") {
-    return (
-      <div className="p-6">
-        <h1 className="text-3xl font-bold mb-4">EventMC-ის ისტორია</h1>
-        <p className="text-gray-700 mb-2">
-          EventMC შეიქმნა ორი მოთამაშის — Ikonik1234-ისა და MaybeBejo-ს მიერ.
-        </p>
-        <p className="text-gray-700 mb-2">
-          ის დაფუძნებულია სპეციალურ ღონისძიებებზე, როგორებიცაა Squid Game, Hunger Games და UHC.
-        </p>
-        <p className="text-gray-700">
-          სერვერმა მალევე მოიპოვა პოპულარობა ქართულ Minecraft საზოგადოებაში თავისი კრეატიული ღონისძიებებით და სამართლიანი ადმინისტრაციით.
-        </p>
-        <p>
-                        თუ უფრო მეტი გაინტერესებთ ვებსაიტზე, გადადით ამ ლინკზე: <a href="https://eventmc.netlify.app" className="text-2xl font-bold text-blue-500 underline">EventMC</a>
-        </p>
+        <h1 className="text-2xl font-bold text-red-600">პოსტი ვერ მოიძებნა</h1>
+        <button
+          onClick={() => navigate("/posts")}
+          className="mt-4 bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
+        >
+          ← დაბრუნდი პოსტების გვერდზე
+        </button>
       </div>
     );
   }
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold text-red-600 mb-2">პოსტი ვერ მოიძებნა</h1>
-      <p className="text-gray-700">მითითებული პოსტი არ არსებობს ან ID არასწორია.</p>
+      <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
+      <p className="text-gray-700 whitespace-pre-line mb-4">{post.content}</p>
+
+      <a
+        href={post.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-600 underline font-semibold block mb-6"
+      >
+        {post.linkText}
+      </a>
+
+      <button
+        onClick={() => navigate("/posts")}
+        className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
+      >
+        ← დაბრუნდი პოსტების გვერდზე
+      </button>
     </div>
   );
 }
