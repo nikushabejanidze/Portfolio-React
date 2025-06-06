@@ -3,10 +3,10 @@ function About() {
     <div className="p-6">
       <h1 className="text-3xl font-bold mb-4">ჩემს შესახებ</h1>
       <p className="text-gray-700 mb-2">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id ligula in magna aliquet blandit. Aliquam erat volutpat.
+        მე ვარ ნიკოლოზ ბეჟანიძე, დამწყები ვებ დეველოპერი რომელსაც დეველოპმენტის გარდა გამოსდის დიზაინერობაც.
       </p>
       <p className="text-gray-700">
-        Integer convallis lorem id porta egestas. Sed eu lorem non urna dapibus sollicitudin vitae nec velit.
+        სულ რაღაც 1 წელი დავიდა რაც უკვე დეველოპერი ვარ და მაქვს შექმნილი რამოდენიმე მცირე და რამოდენიმე დიდი პროექტი რომლებიც გავაკეთე 0-დან და მივიღე დიდი გამოცდილება
       </p>
     </div>
   );

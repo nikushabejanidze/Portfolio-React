@@ -13,10 +13,12 @@ function Header() {
   return (
     <header className="bg-[#4169e1]">
       <nav className="flex justify-center flex-wrap gap-3 px-4 py-4">
-        <Link to="/" className={linkClass('/')}>🏠 მთავარი</Link>
+        <Link to="/" className={linkClass('/')}x>🏠 მთავარი</Link>
         <Link to="/about" className={linkClass('/about')}>👤 ჩემს შესახებ</Link>
         <Link to="/projects" className={linkClass('/projects')}>💼 პროექტები</Link>
         <Link to="/contact" className={linkClass('/contact')}>📬 კონტაქტი</Link>
+        <Link to="/posts" className={linkClass('/posts')}>📰 პოსტები</Link>
+
       </nav>
     </header>
   );
