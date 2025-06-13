@@ -1,12 +1,22 @@
+import { useLanguage } from "../context/LanguageContext";
+
 function Home() {
+  const { language } = useLanguage();
+
   return (
     <div className="p-6">
-      <h1 className="text-3xl font-bold mb-4">მთავარი გვერდი</h1>
+      <h1 className="text-3xl font-bold mb-4">
+        {language === "ge" ? "მთავარი გვერდი" : "Home"}
+      </h1>
       <p className="text-gray-700 mb-2">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam porttitor feugiat nunc, sit amet finibus purus laoreet ac.
+        {language === "ge"
+          ? "აქ შეგიძლიათ იხილოთ ჩვენი პროექტები, სტატიები და სიახლეები."
+          : "Here you can view our projects, articles, and news."}
       </p>
       <p className="text-gray-700">
-        Fusce ac posuere tellus. Sed dapibus, magna ac rhoncus pretium, risus est aliquet justo, at placerat turpis tellus et elit.
+        {language === "ge"
+          ? "შეიქმნა React-ისა და Tailwind CSS-ის გამოყენებით."
+          : "Built with React and Tailwind CSS."}
       </p>
     </div>
   );

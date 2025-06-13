@@ -1,39 +1,28 @@
 import { useParams, useNavigate } from "react-router-dom";
+import { useLanguage } from "../context/LanguageContext";
 
 function Post() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { language } = useLanguage();
 
   const posts = {
-    1: {
-      title: "GeoTiers",
-      content: `ჩვენი Minecraft-ის მოთამაშეთა ტიერლისტი აფასებს მოთამაშეებს სხვადასხვა მინი-თამაშებში მათი შედეგების მიხედვით. 
-      თითოეულ მოთამაშეს ენიჭება ტიერი (მაგალითად, HT1, LT5, RHT2) კონკრეტული მინი-თამაშისთვის, რომელშიც მონაწილეობა მიიღო. 
-      ეს ინდივიდუალური ტიერები ჯამდება და განსაზღვრავს მოთამაშის საერთო ქულებს.`,
-      link: "https://geotiers.fun",
-      linkText: "ეწვიე GeoTiers ვებსაიტს",
-    },
-    2: {
-      title: "EventMC",
-      content: `EventMC არის Minecraft სერვერი, რომელიც ორგანიზებას უწევს სხვადასხვა ტიპის ღონისძიებებს: 
-      Squid Game, UHC, Hunger Games და Battle Royale. 
-      მოთამაშეებს შეუძლიათ იბრძოლონ, იასპარეზონ და მოიგონ რეალური პრიზები.`,
-      link: "https://eventmc.netlify.app",
-      linkText: "ეწვიე EventMC ვებსაიტს",
-    },
+    1: {title: "GeoTiers", content: `ჩვენი Minecraft-ის მოთამაშეთა ტიერლისტი აფასებს მოთამაშეებს სხვადასხვა მინი-თამაშებში მათი შედეგებიდან გამომდინარე.`, link: "https://geotiers.fun", linkText: "ეწვიე GeoTiers ვებსაიტს",},
+    2: {title: "EventMC", content: `EventMC არის Minecraft სერვერი, რომელიც მასპინძლობს სხვადასხვა ღონისძიებებს: Squid Game, UHC, Hunger Games და სხვა.`, link: "https://eventmc.netlify.app", linkText: "ეწვიე EventMC ვებსაიტს",},
   };
 
-  const post = posts[id];
+  const post = posts[id ];
 
   if (!post) {
     return (
       <div className="p-6">
-        <h1 className="text-2xl font-bold text-red-600">პოსტი ვერ მოიძებნა</h1>
+        <h1 className="text-2xl font-semibold text-red-600">
+          {language === "ge" ? "პოსტი ვერ მოიძებნა" : "Post not found"}
+        </h1>
         <button
-          onClick={() => navigate("/posts")}
-          className="mt-4 bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
-        >
-          ← დაბრუნდი პოსტების გვერდზე
+          onClick={() => navigate("/posts")} 
+          className="bg-blue-600 text-gray-50 py-2 px-4 rounded hover:bg-blue-700 mt-4">
+          {language === "ge" ? "უკან" : "Back"}
         </button>
       </div>
     );
@@ -41,23 +30,25 @@ function Post() {
 
   return (
     <div className="p-6">
-      <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
-      <p className="text-gray-700 whitespace-pre-line mb-4">{post.content}</p>
+      <h1 className="text-3xl font-semibold mb-4">
+        {post.title}
+      </h1>
+      <p className="text-gray-700 whitespace-pre-line mb-4">
+        {post.content}
+      </p>
 
       <a
         href={post.link}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-blue-600 underline font-semibold block mb-6"
-      >
+        className="text-blue-600 underline font-semibold block mb-6">
         {post.linkText}
       </a>
 
       <button
-        onClick={() => navigate("/posts")}
-        className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
-      >
-        ← დაბრუნდი პოსტების გვერდზე
+        onClick={() => navigate("/posts")} 
+        className="bg-blue-600 text-gray-50 py-2 px-4 rounded hover:bg-blue-700">
+        {language === "ge" ? "უკან" : "Back"}
       </button>
     </div>
   );
