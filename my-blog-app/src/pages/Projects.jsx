@@ -41,7 +41,6 @@ function Projects() {
     <div className="p-6">
       <h1 className="text-3xl font-bold mb-4">{t.projects}</h1>
 
-      {/* ფილტრაცია */}
       <div className="flex gap-2 mb-6 flex-wrap">
         <button
           className={`px-4 py-2 rounded ${
@@ -77,7 +76,6 @@ function Projects() {
         </button>
       </div>
 
-      {/* პროექტების ბარათები */}
       <ul className="grid gap-4 md:grid-cols-2">
         {filteredProjects.map((project) => (
           <li

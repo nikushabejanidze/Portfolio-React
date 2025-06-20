@@ -15,7 +15,6 @@ function App() {
   return (
     <>
       <Header />
-
       <main className=" px-4 bg-gray-100 py-10 mt-10 ml-auto mr-auto ">
         <Routes>
           <Route path="/" element={<Home />} />

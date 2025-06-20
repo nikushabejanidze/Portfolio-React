@@ -13,7 +13,6 @@ function About() {
         />
       </div>
 
-      {/* მარჯვენა მხარე - ტექსტი */}
       <div className="md:w-1/2 w-full">
         <h1 className="text-3xl font-bold mb-4">{t.about}</h1>
 

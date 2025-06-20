@@ -74,7 +74,6 @@ function Skills() {
         📄 {t.viewCV}
       </a>
 
-      {/* Social Links */}
       <div className="flex gap-4 items-center py-5">
         <a
           href="https://github.com/nikushabejanidze"
