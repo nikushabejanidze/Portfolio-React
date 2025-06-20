@@ -5,30 +5,31 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Posts from "./pages/Posts";
 import Post from "./pages/Post";
+import Skills from "./pages/Skills";
+import NotFound from "./pages/NotFound";
+import Projects from "./pages/Projects";
 
 import { LanguageProvider } from "./context/LanguageContext";
 
 function App() {
   return (
-    <LanguageProvider>
-      <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-start py-8 px-4">
-        <div className="w-full max-w-4xl bg-white rounded-xl shadow-lg overflow-hidden">
-          <Header />
+    <>
+      <Header />
 
-          <main className="p-6">
-            {/* მარშრუტები პირდაპირ */}
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/posts" element={<Posts />} />
-              <Route path="/posts/:id" element={<Post />} />
-            </Routes>
-          </main>
-        </div>
-      </div>
-    </LanguageProvider>
-  );
+      <main className=" px-4 bg-gray-100 py-10 mt-10 ml-auto mr-auto ">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/posts" element={<Posts />} />
+          <Route path="/posts/:id" element={<Post />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
+    </>
+  )
 }
 
 export default App;

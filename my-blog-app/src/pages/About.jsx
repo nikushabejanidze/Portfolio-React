@@ -1,23 +1,38 @@
 import { useLanguage } from "../context/LanguageContext";
 
 function About() {
-  const { language } = useLanguage();
+  const { t } = useLanguage();
 
   return (
-    <div className="p-6">
-      <h1 className="text-3xl font-semibold mb-4">
-        {language === "ge" ? "ჩემს შესახებ" : "About Me"}
-      </h1>
-      <p className="text-gray-700 mb-2">
-        {language === "ge"
-          ? "მე ვარ ნიკოლოზ ბეჟანიძე, დამწყები ვებ დეველოპერი და დიზაინერი."
-          : "I am Nikoloz Bejanidze, a junior web developer and designer."}
-      </p>
-      <p className="text-gray-700">
-        {language === "ge"
-          ? "სულ რაღაც 1 წელი დამიდგა დეველოპმენტში და უკვე შევძელი მრავალი პროექტის შექმნა."
-          : "I've been developing for just a year and I already have several small and large projects under my belt."}
-      </p>
+    <div className="flex flex-col md:flex-row p-6 gap-8 items-center md:items-start">
+      <div className="md:w-100 w-full flex justify-center">
+        <img
+          src="src/pages/aboutme-photo.png "
+          alt="ნიკოლოზ ბეჟანიძე"
+          className="w-72 h-72 object-cover rounded-xl shadow-lg"
+        />
+      </div>
+
+      {/* მარჯვენა მხარე - ტექსტი */}
+      <div className="md:w-1/2 w-full">
+        <h1 className="text-3xl font-bold mb-4">{t.about}</h1>
+
+        <p className="text-gray-700 mb-4">{t.aboutText1}</p>
+        <p className="text-gray-700 mb-4">{t.aboutText2}</p>
+
+        <ul className="list-disc list-inside text-gray-700 mb-6">
+          <li>{t.aboutPoint1}</li>
+          <li>{t.aboutPoint2}</li>
+          <li>{t.aboutPoint3}</li>
+        </ul>
+
+        <a
+          href="/skills"
+          className="inline-block bg-[#2DAAFA] text-white px-5 py-2 rounded hover:bg-[#1b91db] transition"
+        >
+          {t.viewSkills}
+        </a>
+      </div>
     </div>
   );
 }
